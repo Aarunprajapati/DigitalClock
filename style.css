@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Nunito+Sans:wght@200;300;400;600;700&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@200;300;400;500;600&family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e2e44;
+}
+.digital-clock{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2f41;
+    box-shadow: 0 5px 25px rgba(14,21,37,0.8);
+    width: 425px;
+    color: #fff;
+    padding: 20px 45px;
+    flex-direction: column;
+}
+.digital-clock::before{
+    content: "";
+    position: absolute;
+    background: linear-gradient(45deg,#24ff6d,#2f93f1,#ff5e9a);
+    background-size: 200% 200%;
+    z-index: -1;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    filter: blur(40px);
+    animation: glowing 8s ease infinite;
+}
+@keyframes glowing{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+.time{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hours, .dots, .minutes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    padding: 0 10px;
+    line-height: 125px;
+}
+.hours, .minutes{
+    font-size: 6.5em;
+    width: 125px;
+}
+.dots{
+    font-size: 5em;
+    color: #929292;
+}
+.hours{
+    background:-webkit-linear-gradient(90deg,#24ff6d,#2f93f1) ;
+   -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.minutes{
+    background:-webkit-linear-gradient(90deg,#ae4af6,#f9a620) ;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.right-side{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.period, .seconds{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.period{
+    transform: translateY(-20px);
+    background: -webkit-linear-gradient(90deg,#f7b63f,#fa92f2);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.seconds{
+    transform: translateY(16px);
+    background: -webkit-linear-gradient(90deg,#2f93f1,#24ff6d);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.calendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 1.3em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    background: -webkit-linear-gradient(90deg,#941b0c,#ee6055);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.day-name, .day-number, .year{
+    margin-left: 8px;
+
+}
+.dot-menu-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: #efefef;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.dot-menu{
+    z-index: 999;
+    list-style: none;
+    background: #353e54;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    /* position: absolute;
+    top: 7px;
+    right: 5px;  
+    visibility: hidden;
+    opacity: 0; */
+    transition: 0.3s ease; 
+}
+.menu-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clock-format-text{
+    color: #efefef;
+    font-size: 0.9em;
+    margin-right: 20px;
+}
+.toggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+}
+.format-switch-btn{
+    position: relative;
+    height: 15px;
+    width: 35px;
+    /* margin: 1px 10px 1px 12px; */
+    border-radius: 100px;
+    background: #485470;
+    box-shadow: inset 2px 2px 4px rgba(255,255,255,0.1),
+    inset -2px -2px  4px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.format-switch-btn::before{
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    box-shadow:  0 5px 25px #ff5e9a;
+    background-color: #ff5e9a;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    transition: 0.3s ease-in-out;
+    
+}
+.format-switch-btn.active::before{
+    background: #0bff8d;
+    left: calc(100% - 15px - 0px);
+}
